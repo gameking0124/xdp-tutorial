@@ -7,3 +7,5 @@ int handle_xgress(struct __ctx_buff *ctx)
 {
     return CTX_ACT_OK;
 }
+
+char _license[] SEC("license") = "GPL";
