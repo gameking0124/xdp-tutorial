@@ -3,9 +3,9 @@
 #include <bpf/bpf_helpers.h>
 
 SEC("from-container")
-int handle_xgress(struct __ctx_buff *ctx)
+int handle_xgress(struct __sk_buff *ctx)
 {
-    return CTX_ACT_OK;
+    return TC_ACT_OK;
 }
 
 char _license[] SEC("license") = "GPL";
