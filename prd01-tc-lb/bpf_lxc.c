@@ -13,4 +13,10 @@ int handle_xgress(struct __ctx_buff *ctx)
     return CTX_ACT_OK;
 }
 
+__section("to-container")
+int handle_xgress_drop(struct __ctx_buff *ctx)
+{
+    return CTX_ACT_DROP;
+}
+
 char _license[] __section("license") = "GPL";
