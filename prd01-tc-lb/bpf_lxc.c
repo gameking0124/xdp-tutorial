@@ -1,11 +1,16 @@
 
-#include <linux/bpf.h>
-#include <bpf/bpf_helpers.h>
+#include <bpf/ctx/skb.h>
+#include <bpf/api.h>
+#include <ep_config.h>
+#include <node_config.h>
+#include <bpf/verifier.h>
+#include <linux/icmpv6.h>
+#define EVENT_SOURCE LXC_ID
 
-SEC("from-container")
-int handle_xgress(struct __sk_buff *ctx)
+__section("from-container")
+int handle_xgress(struct __ctx_buff *ctx)
 {
-    return TC_ACT_OK;
+    return CTX_ACT_OK;
 }
 
 char _license[] SEC("license") = "GPL";
